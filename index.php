@@ -1,3 +1,7 @@
+<?php
+include "header.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,24 +14,24 @@
 </head>
 
 <body>
-    <form action="login.php" method="POST">
-        <h2>Hai già un account?</h2>
+    <h1>Hai già un account?</h1>
 
+    <form class="form_style" action="login.php" method="POST">
         <!-- Qui stampo l'errore -->
 
         <?php if (isset($_GET['error'])) { ?>
             <p class="error"><?php echo $_GET['error']; ?></p>
         <?php } ?>
 
-        <label>Email</label>
-        <input type="email" name="email" placeholder="Email">
+        <label>Inserisci l'e-mail</label>
+        <input class="input_general" type="email" name="email" placeholder="Name@example.com">
 
-        <label>Password</label>
-        <input type="password" name="password" placeholder="Password">
+        <label>Inserisci la Password</label>
+        <input class="input_general" type="password" name="password" placeholder="Scrivila qui">
 
-        <button type="submit">Login</button>
+        <button type="submit">Accedi</button>
         <p>Non hai ancora un profilo? <a href="registration.php">Registrati</a></p>
-        <p>Hai dimenticato la password? <a href="mailer.php">Reset</a></p>
+        <p>Hai dimenticato la password? <a href="mailer.php">Recupera Password</a></p>
     </form>
 </body>
 

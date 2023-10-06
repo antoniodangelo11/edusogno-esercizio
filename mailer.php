@@ -15,7 +15,7 @@ if (isset($_POST["email"])) {
 
     try {
         //Server settings
-        // $mail->SMTPDebug = SMTP::DEBUG_SERVER; Per fare vedere l'output dell'invio 
+        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
