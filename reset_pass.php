@@ -1,58 +1,71 @@
 <?php
-session_start();
-include "db_connection.php";
-if (isset($_POST['new_pass'])) {
-    $newPass = $_POST['new_pass'];
-    $user_mail = $_POST['email'];
 
+$token = $_GET["token"];
 
-    if (empty($newPass)) {
-        header("Location: reset_password.php?error=New Pasword is required");
-        exit();
-    } else {
-        $sqlNewPass = "UPDATE utenti SET password = '$newPass' WHERE email = '$user_mail'";
+$token_hash = hash("sha256", $token);
 
-        if (mysqli_query($conn, $sqlNewPass)) {
-        ?><div>
-        <?php echo "La password è stata cambiata correttamente!"; ?>
-            </div>
+$mysqli = require "db_connection.php";
 
-        <?php
-            header("refresh:2;url=reset_pass.php");
-            exit();
-        } else {
-            header("Location: reset_password.php?error=Hai inserito valori non validi");
-            exit();
-        }
-    }
-} ?>
+$sql = "SELECT * FROM utenti
+    WHERE reset_token_hash = ?";
 
+$stmt = $mysqli->prepare($sql);
+
+$stmt->bind_param("s", $token_hash);
+
+$stmt->execute();
+
+$result = $stmt->get_result();
+
+$user = $result->fetch_assoc();
+
+if ($user === null) {
+    die("token non trovato");
+}
+
+if (strtotime($user["reset_token_expires_at"]) <= time()) {
+    die ("Il token è scaduto");
+}
+
+// echo "il token è valido e non è scaduto";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Password</title>
+    <title>Reset password</title>
+    <link rel="stylesheet" href="assets/styles/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="assets/styles/index.css?v=<?php echo time(); ?>">
+    <script src="./assets/js/script.js" defer></script> 
 </head>
-
 <body>
-    <form action="" method="post">
-        <h2>CHANGE PASSWORD</h2>
-        <?php if (isset($_GET['error'])) { ?>
-            <p class="error"><?= $_GET['error'] ?></p>
-        <?php } ?>
+    <h1>Reset Password</h1>
+    <div class="container">
+        <div class="container_form">
+            <form action="reset_logic.php" method="post" class="form">
+                
+                <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
 
-        <label for="email">Inserisci la email</label>
-        <input type="email" name="email">
+                <div class="cont_label">
+                    <label for="password" class="write_login">New Password</label>
+                </div>
+                <div>
+                    <input type="password" name="password" id="password" class="password-field" placeholder="Scrivila qui">
+                </div>
 
-        <label for="new_pass">Nuova Password</label>
-        <input type="password" name="new_pass">
+                <div class="cont_label">
+                    <label for="password_confirmation" class="write_login">Repeat Password</label>
+                </div>
+                
+                <div>
+                    <input type="password" id="password_confirmation" name="password_confirmation" class="password-field" placeholder="Scrivila qui">
+                </div>
 
-        <button type="submit">Cambia Password</button>
-
-    </form>
+                <button>Invia</button>
+            </form>
+        </div>
+    </div>  
 </body>
-
 </html>

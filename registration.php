@@ -20,7 +20,7 @@
             <h1 class="title_event_form">
                 Crea il tuo account
             </h1>
-            <form action=".registration_check.php" method="POST" class="form">
+            <form action="registration_check.php" method="POST" class="form">
                 
 
                 <?php if (isset($_GET['error'])) { ?>

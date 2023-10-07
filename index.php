@@ -49,7 +49,7 @@
                     <a href="registration.php" class="text">Non hai ancora un profilo? <span class="p_link">Registrati</span></a>
                 </div>
             
-                <a href="reset_pass.php" class="text">Hai dimenticato la password? <span class="p_link">Clicca qui</span></a><br>
+                <a href="reset_logic.php" class="text">Hai dimenticato la password? <span class="p_link">Clicca qui</span></a><br>
             </div>
             
         </form>
