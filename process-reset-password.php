@@ -43,7 +43,7 @@ if ($_POST["password"] !== $_POST["password_confirmation"]) {
     die("Passwords must match");
 }
 
-$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+$password = $_POST["password"];
 
 $sql = "UPDATE utenti
         SET password = ?,
@@ -57,4 +57,4 @@ $stmt->bind_param("ss", $password, $user["id"]);
 
 $stmt->execute();
 
-echo "Password updated. You can now login.";
+echo 'Password aggiornata. Puoi tornare al <a href="index.php"><button>Torna al Login</button></a>.';
