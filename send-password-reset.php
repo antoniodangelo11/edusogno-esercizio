@@ -41,10 +41,10 @@ if ($mysqli->affected_rows) {
 
     } catch (Exception $e) {
 
-        echo "Message could not be sent. Mailer error: {$mail->ErrorInfo}";
+        echo "Impossibile inviare il messaggio. Errore Mailer: {$mail->ErrorInfo}";
 
     }
 
 }
 
-echo "Message sent, please check your inbox.";
+echo '<p class="success-message">Messaggio inviato con successo! Verifica la tua email per ulteriori dettagli.</p>';

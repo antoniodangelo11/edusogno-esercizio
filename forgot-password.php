@@ -7,14 +7,14 @@
 </head>
 <body>
 
-    <h1>Forgot Password</h1>
+    <h1>Password Dimenticata?</h1>
 
     <form method="post" action="send-password-reset.php">
 
-        <label for="email">email</label>
+        <label for="email">Inserisci la tua Email</label>
         <input type="email" name="email" id="email">
 
-        <button>Send</button>
+        <button>Invia</button>
 
     </form>
 

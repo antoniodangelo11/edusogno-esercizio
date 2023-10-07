@@ -9,6 +9,7 @@
 <body>
     <header>
         <img src="assets/img/logoEdusogno.jpg" alt="">
+        <div><a href="logout.php" class="logout">Logout</a></div>
     </header>
 </body>
 </html>
