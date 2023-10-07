@@ -1,9 +1,14 @@
+<?php
+include "header.php";
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>SIGN UP</title>
-    <link rel="stylesheet" href="./assets/styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrati</title>
 </head>
 
 <body>

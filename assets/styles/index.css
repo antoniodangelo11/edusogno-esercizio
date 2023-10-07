@@ -1,0 +1,83 @@
+header {
+  height: 4rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  box-shadow: -2px 21px 25px -21px rgba(21, 14, 235, 1);
+}
+
+header img {
+  height: 2.5rem;
+}
+
+header .dash {
+  font-weight: bold;
+  color: var(--bg-button);
+  text-decoration: none;
+}
+
+.container_form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title_event_form{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.form {
+    background-color:#FFFFFF;
+    width: 500px;
+    padding: 40px;
+    border: 1px solid var(--bg-whiter);
+    border-radius: 5%;
+    text-align: start;
+}
+
+svg{
+    position: absolute;
+    top: 12px;
+    right: 0;
+    width: 25px;
+    height: 12px;
+    flex-shrink: 0;
+}
+
+svg:hover{
+    cursor: pointer;
+}
+
+.write_login{
+    font-size: 10px;
+    margin-top: 50px;
+    font-weight: 800;
+}
+
+.button{
+    width: 100%;
+    margin-top: 30px;
+    height: 40px;
+}
+
+.link{
+    margin-bottom: 4px;
+    font-size: 10px;
+}
+
+.link .registration{
+    margin-top: 20px;
+}
+
+.link .text{
+    text-decoration: none;
+}
+
+.p_link{
+    font-weight: 700;
+    text-decoration: underline;
+}
