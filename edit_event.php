@@ -63,11 +63,5 @@ include("db_connection.php");
         ?>
     </div>
 </div>
-
-
-
-
-
-
 </body>
 </html>
